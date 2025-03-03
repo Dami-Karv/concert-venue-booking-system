@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+ }
+ 
+ header {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ header a {
+    text-decoration: none;
+    color: #3182ce;
+    font-weight: 500;
+ }
+ 
+ header a:hover {
+    color: #2c5282;
+ }
+ 
+ main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+ }
+ 
+ #messageContainer {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+ }
+ 
+ .error-message, .success-message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.3s ease-in;
+ }
+ 
+ .error-message {
+    background: #fed7d7;
+    color: #c53030;
+ }
+ 
+ .success-message {
+    background: #c6f6d5;
+    color: #2f855a;
+ }
+ 
+ .profile-section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ .profile-info {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+ }
+ 
+ .profile-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+ }
+ 
+ .user-details h1 {
+    margin: 0 0 0.5rem 0;
+    color: #2d3748;
+ }
+ 
+ .user-details p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+ }
+ 
+ form {
+    display: grid;
+    gap: 1rem;
+ }
+ 
+ form div {
+    display: grid;
+    gap: 0.5rem;
+ }
+
+ .booking-status {
+   padding: 4px 8px;
+   border-radius: 4px;
+   font-size: 0.9em;
+   font-weight: 500;
+}
+
+.status-active {
+   background-color: #e6f4ea;
+   color: #137333;
+}
+
+.status-cancelled {
+   background-color: #fce8e6;
+   color: #c5221f;
+}
+
+.status-default {
+   background-color: #f1f3f4;
+   color: #3c4043;
+}
+
+.cancel-booking-btn {
+   background-color: #dc3545;
+   color: white;
+   border: none;
+   padding: 8px 16px;
+   border-radius: 4px;
+   cursor: pointer;
+   margin-top: 10px;
+}
+
+.cancel-booking-btn:hover {
+   background-color: #c82333;
+}
+ 
+ label {
+    font-weight: 500;
+    color: #4a5568;
+ }
+ 
+ input {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+ }
+ 
+ input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49,130,206,0.1);
+ }
+ 
+ button {
+    padding: 0.75rem 1.5rem;
+    background: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+ }
+ 
+ button:hover {
+    background: #2c5282;
+ }
+ 
+ .cards-section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ .cards-section h2 {
+    margin: 0 0 1.5rem 0;
+    color: #2d3748;
+ }
+ 
+ #cardList {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+ }
+ 
+ .card {
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 1.5rem;
+    position: relative;
+ }
+ 
+ .card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2d3748;
+ }
+ 
+ .card p {
+    margin: 0.25rem 0;
+    color: #4a5568;
+ }
+ 
+ .delete-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #e53e3e;
+    padding: 0.5rem 1rem;
+ }
+ 
+ .delete-btn:hover {
+    background: #c53030;
+ }
+ 
+ #cardForm {
+    display: none;
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+ }
+ 
+ .logout-section {
+    display: flex;
+    justify-content: center;
+ }
+ 
+ #logoutBtn {
+    background: #e53e3e;
+    font-weight: 500;
+ }
+ 
+ #logoutBtn:hover {
+    background: #c53030;
+ }
+ 
+ @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }
+ 
+ @media (max-width: 768px) {
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+ 
+    main {
+        padding: 0 1rem;
+    }
+ 
+    .profile-section, .cards-section {
+        padding: 1.5rem;
+    }
+ }
+ 
+ @media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+ 
+    .delete-btn {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+    }
+ }

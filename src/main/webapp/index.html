@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VenueBook - Book Your Events</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/VenuebookLOGO.png" alt="VenueBook Logo" class="nav-logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="user.html" class="user-icon">👤</a>
+                <a href="reglog.html" class="auth-link">Login / Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>   
+        <section class="events-section">
+            <div id="showsContainer" class="shows-grid"></div>
+        </section>
+    
+        <div id="showDetails" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal()">&times;</button>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="messageContainer" class="message-container"></div>
+    <script src="js/index.js"></script>
+</body>
+</html>

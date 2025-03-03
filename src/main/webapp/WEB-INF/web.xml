@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.html</location>
+    </error-page>
+
+<servlet>
+   <servlet-name>EventServlet</servlet-name>
+   <servlet-class>servlets.EventServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+   <servlet-name>EventServlet</servlet-name>
+   <url-pattern>/api/events/*</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>CreateEventServlet</servlet-name>
+   <servlet-class>servlets.CreateEventServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+   <servlet-name>CreateEventServlet</servlet-name>
+   <url-pattern>/api/events/create</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>DeleteEventServlet</servlet-name>
+   <servlet-class>servlets.DeleteEventServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+   <servlet-name>DeleteEventServlet</servlet-name>
+   <url-pattern>/api/deleteEvent</url-pattern>
+</servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/api/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>servlets.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/api/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/api/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>servlets.UserProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/api/user/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookingServlet</servlet-name>
+        <servlet-class>servlets.BookingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookingServlet</servlet-name>
+        <url-pattern>/api/bookings</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookingCancellationServlet</servlet-name>
+        <servlet-class>servlets.BookingCancellationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookingCancellationServlet</servlet-name>
+        <url-pattern>/api/bookings/cancel</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PaymentMethodServlet</servlet-name>
+        <servlet-class>servlets.PaymentMethodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentMethodServlet</servlet-name>
+        <url-pattern>/api/user/cards/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+    <servlet-name>PaymentServlet</servlet-name>
+    <servlet-class>servlets.PaymentServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>PaymentServlet</servlet-name>
+    <url-pattern>/api/payments</url-pattern>
+</servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>TicketTypeServlet</servlet-name>
+        <servlet-class>servlets.TicketTypeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TicketTypeServlet</servlet-name>
+        <url-pattern>/api/ticket-types</url-pattern>
+    </servlet-mapping>
+
+    <!-- Welcome Files -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>

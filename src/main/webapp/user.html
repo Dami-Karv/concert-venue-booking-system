@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - VenueBook</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back to Home</a>
+    </header>
+
+    <main>
+        <div id="messageContainer"></div>
+        <section class="profile-section">
+            <div class="profile-info">
+                <div class="user-details">
+                    <h1 id="userName">Loading...</h1>
+                    <p id="userEmail">Loading...</p>
+                </div>
+            </div>
+        </section>
+        <section class="bookings-section">
+            <h2>My Bookings</h2>
+            <div id="bookingsList"></div>
+        </section>
+        <section class="cards-section">
+            <h2>Saved Payment Methods</h2>
+            <div id="cardList"></div>
+            
+            <button id="addCardBtn">Add New Card</button>
+
+            <form id="cardForm">
+                <div>
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required maxlength="19">
+                </div>    
+                <div>
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required maxlength="5">
+                </div>
+                <div>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required maxlength="3">
+                </div>
+                <div>
+                    <label for="cardName">Name on Card:</label>
+                    <input type="text" id="cardName" name="cardName" required>
+                </div>
+                <button type="submit" id="submitCard">Save Card</button>
+            </form>
+        </section>
+        <section class="logout-section">
+            <button id="logoutBtn" onclick="handleLogout()">Logout</button>
+        </section>
+    </main>
+
+    <script src="js/user.js"></script>
+</body>
+</html>

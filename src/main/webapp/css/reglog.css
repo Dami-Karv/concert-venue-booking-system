@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #f5f5f5;
+    color: #2d3748;
+ }
+ 
+ header {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ header a {
+    text-decoration: none;
+    color: #3182ce;
+    font-weight: 500;
+    transition: color 0.2s;
+ }
+ 
+ header a:hover {
+    color: #2c5282;
+ }
+ 
+ main {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+ }
+ 
+ #buttonContainer {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+ }
+ 
+ #buttonContainer button {
+    padding: 0.75rem 2rem;
+    background: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 120px;
+ }
+ 
+ #buttonContainer button:hover {
+    background: #2c5282;
+ }
+ 
+ #formContainer {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+ }
+ 
+ form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+ }
+ 
+ label {
+    font-weight: 500;
+    color: #4a5568;
+ }
+ 
+ input {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.2s;
+ }
+ 
+ input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49,130,206,0.1);
+ }
+ 
+ form button {
+    padding: 0.75rem;
+    background: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 1rem;
+ }
+ 
+ form button:hover {
+    background: #2c5282;
+ }
+ 
+ #messageContainer {
+    margin-top: 1rem;
+    text-align: center;
+ }
+ 
+ #messageContainer div {
+    padding: 1rem;
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease-in;
+ }
+ 
+ #messageContainer div[style*="red"] {
+    background: #fed7d7;
+    color: #c53030;
+ }
+ 
+ #messageContainer div[style*="green"] {
+    background: #c6f6d5;
+    color: #2f855a;
+ }
+ 
+ .password-strength {
+    height: 4px;
+    margin-top: 0.5rem;
+    border-radius: 2px;
+    transition: all 0.3s;
+ }
+ 
+ .strength-weak {
+    background: #e53e3e;
+    width: 33%;
+ }
+ 
+ .strength-medium {
+    background: #ecc94b;
+    width: 66%;
+ }
+ 
+ .strength-strong {
+    background: #48bb78;
+    width: 100%;
+ }

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login/Register - VenueBook</title>
+    <link rel="stylesheet" href="css/reglog.css">
+    <link rel="prefetch" href="index.html">
+    <link rel="prefetch" href="js/index.js">
+    <link rel="prefetch" href="css/index.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <main>
+        <div id="buttonContainer">
+            <button onclick="showLoginForm()">Login</button>
+            <button onclick="showRegisterForm()">Register</button>
+        </div>
+
+        <div id="formContainer"></div>
+        <div id="messageContainer"></div>
+    </main>
+
+    <script>
+        const API_BASE_URL = '/hy360-project-2024/api';
+        
+        function showMessage(message, isError = false) {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.innerHTML = `
+                <div style="color: ${isError ? 'red' : 'green'}; margin-top: 10px;">
+                    ${message}
+                </div>
+            `;
+        }
+
+        function clearMessage() {
+            document.getElementById('messageContainer').innerHTML = '';
+        }
+
+        function showLoginForm() {
+            clearMessage();
+            const formContainer = document.getElementById('formContainer');
+            formContainer.innerHTML = `
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            `;
+        }
+
+        function showRegisterForm() {
+            clearMessage();
+            const formContainer = document.getElementById('formContainer');
+            formContainer.innerHTML = `
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div>
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div>
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            `;
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+            clearMessage();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch(`${API_BASE_URL}/login`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            });
+
+            const data = await response.json();
+            
+            if (data.success) {
+                showMessage('Login successful! Redirecting...', false);
+                setTimeout(() => {
+                    window.location.href = data.redirect || 'index.html';
+                }, 1500);
+            } else {
+                showMessage('Invalid email or password', true);
+            }
+        }
+
+        async function handleRegister(event) {
+            event.preventDefault();
+            clearMessage();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match!', true);
+                return;
+            }
+
+            const response = await fetch(`${API_BASE_URL}/register`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: `firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            });
+
+            const data = await response.json();
+            
+            if (data.success) {
+                showMessage('Registration successful! Please login.', false);
+                setTimeout(() => {
+                    showLoginForm();
+                }, 1500);
+            } else {
+                showMessage('Registration failed - email might be already in use', true);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showLoginForm();
+        });
+    </script>
+</body>
+</html>
